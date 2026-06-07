@@ -25,29 +25,33 @@ public class TemperatureConverter {
 
             if (input.equalsIgnoreCase("stop")) {
                 on = false;
-            }
-            else {
+            } else {
                 Scanner stringCheck = new Scanner(input);
 
                 if (stringCheck.hasNextDouble()) {
                     double tempValue = stringCheck.nextDouble();
 
-                    System.out.print("Enter the unit (C or F): ");
-                    String unitValue = scnr.next();
+                    // Keep re-prompting until a valid unit is entered
+                    boolean validUnit = false;
+                    while (!validUnit) {
+                        System.out.print("Enter the unit (C or F): ");
+                        String unitValue = scnr.next();
 
-                    if (unitValue.equalsIgnoreCase("C") || unitValue.equalsIgnoreCase("F")) {
-                        double result = convertTemperature(tempValue, unitValue);
+                        if (unitValue.equalsIgnoreCase("C") || unitValue.equalsIgnoreCase("F")) {
+                            double result = convertTemperature(tempValue, unitValue);
+                            String fromUnit = unitValue.toUpperCase();
+                            String toUnit = fromUnit.equals("C") ? "F" : "C";
 
-                        System.out.printf("%.2f%s is equal to %.2f%s\n",
-                                tempValue, unitValue.toUpperCase(),
-                                result, (unitValue.equalsIgnoreCase("C") ? "F" : "C"));
+                            System.out.printf("%.2f\u00B0%s is equal to %.2f\u00B0%s%n",
+                                    tempValue, fromUnit, result, toUnit);
+
+                            validUnit = true;
+                        } else {
+                            System.out.println("Error: Unrecognized unit. Please enter C or F.");
+                        }
                     }
-                    else {
-                        System.out.println("Error: Unrecognized unit. Use C or F. Temperature was: "+ tempValue);
-                    }
 
-                }
-                else {
+                } else {
                     System.out.println("Error: Invalid temperature input. Please enter a valid number.");
                 }
 
