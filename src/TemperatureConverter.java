@@ -35,13 +35,13 @@ public class TemperatureConverter {
                     }
                     else {
                         // Display error message for unrecognized unit labels
-                        System.out.println("Error, Unrecognized unit, Use C or F.");
+                        System.out.println("Error: Unrecognized unit. Use C or F.");
                     }
 
                 }
                 else {
                     // Display error message for non-numeric temperature values (like "abc")
-                    System.out.println("Error: Invalid temperature input Please enter  valid number.");
+                    System.out.println("Error: Invalid temperature input. Please enter  valid number.");
                 }
 
                 stringCheck.close();
