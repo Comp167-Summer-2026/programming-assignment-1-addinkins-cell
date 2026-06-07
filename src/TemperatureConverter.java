@@ -20,7 +20,7 @@ public class TemperatureConverter {
         boolean on = true;
 
         while (on) {
-            System.out.print("Enter a temperature value or type 'stop' to quit: ");
+            System.out.print("Enter temperature (or 'stop' to quit): ");
             String input = scnr.next();
 
             if (input.equalsIgnoreCase("stop")) {
