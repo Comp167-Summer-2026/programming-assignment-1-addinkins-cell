@@ -29,9 +29,9 @@ public class TemperatureConverter {
                     String unit = scnr.next();
                     if (unit.equals("C") || unit.equals("F")) {
                         double result = convertTemperature(tempValue, unit);
-                        System.out.printf("%.2f°%s is equal to %.2f°%s\n",
+                        System.out.printf("%.2f%s is equal to %.2f%s\n",
                                 tempValue, unit.toUpperCase(),
-                                result, (unit.equals("C") ? "F" : "C"));
+                                result, (unit.equalsIgnoreCase("C") ? "F" : "C"));
                     }
                     else {
                         // Display error message for unrecognized unit labels
