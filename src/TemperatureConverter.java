@@ -43,7 +43,7 @@ public class TemperatureConverter {
                                 result, (unitValue.equalsIgnoreCase("C") ? "F" : "C"));
                     }
                     else {
-                        System.out.println("Error: Unrecognized unit. Use C or F.");
+                        System.out.println("Error: Unrecognized unit. Use C or F. Temperature was: "+ tempValue);
                     }
 
                 }
